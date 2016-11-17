@@ -2,11 +2,16 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 
-public class dvd extends JFrame {
+public class dvd extends JFrame{
     // private instance variables
     JButton oneButton;
     JLabel welcomeLabel;
+    JMenu fileMenu;  
+    JMenu editMenu;
+    JMenuItem item1,item2;
     
+    
+
     /** driver */
     public static void main (String [] args) {  
 		dvd mine = new dvd();
@@ -25,11 +30,35 @@ public class dvd extends JFrame {
         JLabel welcomeLabel = new JLabel("Welcome");
         contentPane.add(welcomeLabel);
         
-        
-        // construct two buttons
+    
         oneButton = new JButton("Rent DVD");
         oneButton.setBounds(150,150,100,50);
         contentPane.add(oneButton);
+        
+        fileMenu = new JMenu("File");
+        editMenu = new JMenu("Exit");
+        
+        item1 = new JMenuItem("New"); 
+        item2 = new JMenuItem("Open...");
+        
+        fileMenu.add(item1);
+        fileMenu.add(item2);
+        
+        JMenuBar menuBar = new JMenuBar();
+        
+        setJMenuBar(menuBar);
+        
+        menuBar.add(fileMenu);
+        menuBar.add(editMenu);
+        
+        
+        
+        
+        
+        
+      
+        
+  
         
      
     }
