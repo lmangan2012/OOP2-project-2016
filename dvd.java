@@ -5,11 +5,11 @@ import java.awt.event.*;
 public class dvd extends JFrame{
     // private instance variables
     JButton oneButton, twoButton;
-    JLabel welcomeLabel;
-    JPanel imagePanel,newPanel;
+    JLabel welcomeLabel,test;
+    JPanel imagePanel,newPanel,p;
     JMenu fileMenu;  
     JMenu editMenu;
-    JMenuItem item1,item2;
+    JMenuItem item1,item2,item3,item4;
     
     
 
@@ -35,6 +35,13 @@ public class dvd extends JFrame{
         imagePanel.add(new JLabel(new ImageIcon("images/dvd_rental_shop.jpg")));
         imagePanel.setPreferredSize(new Dimension(500,200));
         imagePanel.setBackground (Color.PINK);
+        
+        JPanel p = new JPanel(new BorderLayout());
+        p.setBackground (Color.PINK);
+        JLabel test = new JLabel("<html>Welcome to the Parkway DVD Rental shop. <br/> " +
+        						"Please select an option from the menu above to avail of our many features.</html>");
+        
+        
 
         JPanel newPanel = new JPanel();
         newPanel.setAlignmentX(Component.CENTER_ALIGNMENT);
@@ -55,11 +62,16 @@ public class dvd extends JFrame{
         fileMenu = new JMenu("File");
         editMenu = new JMenu("Exit");
         
-        item1 = new JMenuItem("New"); 
-        item2 = new JMenuItem("Open...");
+        item1 = new JMenuItem("Add DVD"); 
+        item2 = new JMenuItem("Edit DVD");
+        item3 = new JMenuItem("Remove DVD");
+        item4 = new JMenuItem("Rent DVD");
+        
        
         fileMenu.add(item1); 
         fileMenu.add(item2);
+        fileMenu.add(item3);
+        fileMenu.add(item4);
         
         JMenuBar menuBar = new JMenuBar();
         
