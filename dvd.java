@@ -1,14 +1,15 @@
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import javax.swing.event.*;
 
-public class dvd extends JFrame{
+public class dvd extends JFrame implements ActionListener,MenuListener{
     // private instance variables
     JButton oneButton, twoButton;
-    JLabel welcomeLabel,test;
+    JLabel welcomeLabel,response;
     JPanel imagePanel,newPanel,p;
     JMenu fileMenu;  
-    JMenu editMenu;
+    JMenu rentMenu;
     JMenuItem item1,item2,item3,item4;
     
     
@@ -29,27 +30,24 @@ public class dvd extends JFrame{
 
         // get the content pane and set properties
         Container contentPane = getContentPane();
-        contentPane.setLayout(new GridBagLayout());
+        contentPane.setLayout(new BorderLayout());
         
         JPanel imagePanel = new JPanel(new FlowLayout());
-        imagePanel.add(new JLabel(new ImageIcon("images/dvd_rental_shop.jpg")));
+        imagePanel.add(new JLabel("DVD Rental Store"));
         imagePanel.setPreferredSize(new Dimension(500,200));
         imagePanel.setBackground (Color.PINK);
+        contentPane.add(imagePanel,BorderLayout.NORTH);
         
-        JPanel p = new JPanel(new BorderLayout());
-        p.setBackground (Color.PINK);
-        JLabel test = new JLabel("<html>Welcome to the Parkway DVD Rental shop. <br/> " +
-        						"Please select an option from the menu above to avail of our many features.</html>");
-        
+
         
 
         JPanel newPanel = new JPanel();
         newPanel.setAlignmentX(Component.CENTER_ALIGNMENT);
-        contentPane.add(newPanel, new GridBagConstraints());
+        contentPane.add(newPanel, BorderLayout.CENTER);
         
         
         newPanel.setPreferredSize(new Dimension(500,200));
-        newPanel.setBackground (Color.PINK);
+        newPanel.setBackground (Color.YELLOW);
        
        
         JLabel welcomeLabel = new JLabel("<html>Welcome to the Parkway DVD Rental shop. <br/> " +
@@ -59,14 +57,16 @@ public class dvd extends JFrame{
        	
        	newPanel.add(welcomeLabel);
                
-        fileMenu = new JMenu("File");
-        editMenu = new JMenu("Exit");
+        fileMenu = new JMenu("DVD");
+        rentMenu = new JMenu("Rent");
         
         item1 = new JMenuItem("Add DVD"); 
         item2 = new JMenuItem("Edit DVD");
         item3 = new JMenuItem("Remove DVD");
-        item4 = new JMenuItem("Rent DVD");
+        item4 = new JMenuItem("Exit");
         
+        item4.addActionListener(this);
+        rentMenu.addMenuListener(this);
        
         fileMenu.add(item1); 
         fileMenu.add(item2);
@@ -78,17 +78,31 @@ public class dvd extends JFrame{
         setJMenuBar(menuBar);
         
         menuBar.add(fileMenu);
-        menuBar.add(editMenu);
-        
-        
-        
-        
-        
-        
-      
-        
-  
-        
-     
+        menuBar.add(rentMenu);
     }
+    
+//JMenuItem item1 = new JMenuItem(new AbstractAction("My Menu Item") {
+    public void actionPerformed(ActionEvent e) {
+        String  menuName=e.getActionCommand();
+//        menuName = event.getActionCommand(); // what's written on the item that was clicked
+        // note the String comparison
+        if (menuName.equals("Exit")) {
+           System.exit(0);
+        } // end if
+        else {
+           response.setText("Menu Item '" + menuName + "' is selected.");
+        } // end else
+    }
+    
+    public void menuCanceled(MenuEvent e){}
+    
+    public void menuDeselected(MenuEvent e){}
+    
+    public void menuSelected(MenuEvent e)
+    {
+    	//rent a DVD
+    	System.out.println("Hi!");
+    }
+    
+
 }
