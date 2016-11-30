@@ -6,8 +6,8 @@ import javax.swing.event.*;
 public class dvd extends JFrame implements ActionListener,MenuListener{
     // private instance variables
     JButton oneButton, twoButton;
-    JLabel welcomeLabel,response;
-    JPanel imagePanel,newPanel,p;
+    JLabel welcomeLabel,headingLabel;
+    JPanel headingPanel,newPanel,p;
     JMenu fileMenu;  
     JMenu rentMenu;
     JMenuItem item1,item2,item3,item4;
@@ -32,17 +32,18 @@ public class dvd extends JFrame implements ActionListener,MenuListener{
         Container contentPane = getContentPane();
         contentPane.setLayout(new BorderLayout());
         
-        JPanel imagePanel = new JPanel(new FlowLayout());
-        imagePanel.add(new JLabel("DVD Rental Store"));
-        imagePanel.setPreferredSize(new Dimension(500,200));
-        imagePanel.setBackground (Color.PINK);
-        contentPane.add(imagePanel,BorderLayout.NORTH);
-        
-
+        JPanel headingPanel = new JPanel(new FlowLayout());
+        JLabel headingLabel = new JLabel("DVD Rental Store");
+        headingPanel.add(headingLabel);
+        headingPanel.setFont(new Font("Courier New", Font.ITALIC, 12));
+        //label.setFont(new Font("Courier New", Font.ITALIC, 12));	
+        	
+        headingPanel.setPreferredSize(new Dimension(500,200));
+        headingPanel.setBackground (Color.PINK);
+        contentPane.add(headingPanel,BorderLayout.NORTH);
         
 
         JPanel newPanel = new JPanel();
-        newPanel.setAlignmentX(Component.CENTER_ALIGNMENT);
         contentPane.add(newPanel, BorderLayout.CENTER);
         
         
@@ -65,6 +66,10 @@ public class dvd extends JFrame implements ActionListener,MenuListener{
         item3 = new JMenuItem("Remove DVD");
         item4 = new JMenuItem("Exit");
         
+        
+        item1.addActionListener(this);
+        item2.addActionListener(this);
+        item3.addActionListener(this);
         item4.addActionListener(this);
         rentMenu.addMenuListener(this);
        
@@ -86,11 +91,17 @@ public class dvd extends JFrame implements ActionListener,MenuListener{
         String  menuName=e.getActionCommand();
 //        menuName = event.getActionCommand(); // what's written on the item that was clicked
         // note the String comparison
-        if (menuName.equals("Exit")) {
-           System.exit(0);
+        if (item1.equals("Add DVD")) {
+           welcomeLabel.setText("Menu Item '" + menuName + "' is selected.");
         } // end if
+        else if (item2.equals("Edit DVD")) {
+           welcomeLabel.setText("Menu Item '" + menuName + "' is selected.");
+        } // end else if
+        else if (item3.equals("Remove DVD")) {
+           welcomeLabel.setText("Menu Item '" + menuName + "' is selected.");
+        } // end else if
         else {
-           response.setText("Menu Item '" + menuName + "' is selected.");
+           System.exit(0);
         } // end else
     }
     
@@ -101,8 +112,19 @@ public class dvd extends JFrame implements ActionListener,MenuListener{
     public void menuSelected(MenuEvent e)
     {
     	//rent a DVD
-    	System.out.println("Hi!");
+        dvd.setVisible(false);
+        JFrame rentDVD = new JFrame();
+       		rentDVD.setVisible(true);
+        	rentDVD.setTitle ("Rent A DVD");
+        	rentDVD.setSize (600,600);
+        	rentDVD.setResizable(false);
+        	rentDVD.setDefaultCloseOperation( EXIT_ON_CLOSE );
+        	
+        	
+       
     }
     
 
 }
+
+           
