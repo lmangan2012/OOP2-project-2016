@@ -8,9 +8,8 @@ public class dvd extends JFrame implements ActionListener,MenuListener{
     JButton oneButton, twoButton;
     JLabel welcomeLabel,headingLabel;
     JPanel headingPanel,newPanel,p;
-    JMenu fileMenu;  
-    JMenu rentMenu;
-    JMenuItem item1,item2,item3,item4;
+    JMenu customerMenu,dvdMenu,rentMenu,exitMenu;
+    JMenuItem item1,item2,item3,item4,item5,item6,item7;
     
     
 
@@ -57,47 +56,67 @@ public class dvd extends JFrame implements ActionListener,MenuListener{
         //Code Source: http://stackoverflow.com/questions/7861724/is-there-a-word-wrap-property-for-jlabel
        	
        	newPanel.add(welcomeLabel);
-               
-        fileMenu = new JMenu("DVD");
-        rentMenu = new JMenu("Rent");
         
-        item1 = new JMenuItem("Add DVD"); 
-        item2 = new JMenuItem("Edit DVD");
-        item3 = new JMenuItem("Remove DVD");
-        item4 = new JMenuItem("Exit");
+        customerMenu = new JMenu("Customer");       
+        dvdMenu = new JMenu("DVD");
+        rentMenu = new JMenu("Rent DVD");
+        exitMenu = new JMenu("Exit");
+        
+        item1 = new JMenuItem("Add Customer");
+        item2 = new JMenuItem("Edit Customer");
+        item3 = new JMenuItem("Remove Customer");
+        item4 = new JMenuItem("Add DVD"); 
+        item5 = new JMenuItem("Edit DVD");
+        item6 = new JMenuItem("Remove DVD");
         
         
         item1.addActionListener(this);
         item2.addActionListener(this);
         item3.addActionListener(this);
         item4.addActionListener(this);
+        item5.addActionListener(this);
+        item6.addActionListener(this);
         rentMenu.addMenuListener(this);
+        exitMenu.addMenuListener(this);
        
-        fileMenu.add(item1); 
-        fileMenu.add(item2);
-        fileMenu.add(item3);
-        fileMenu.add(item4);
+        customerMenu.add(item1); 
+        customerMenu.add(item2);
+        customerMenu.add(item3);
+        dvdMenu.add(item4);
+        dvdMenu.add(item5);
+        dvdMenu.add(item6);
         
         JMenuBar menuBar = new JMenuBar();
         
         setJMenuBar(menuBar);
         
-        menuBar.add(fileMenu);
+        menuBar.add(customerMenu);
+        menuBar.add(dvdMenu);
         menuBar.add(rentMenu);
+        menuBar.add(exitMenu);
     }
     
 //JMenuItem item1 = new JMenuItem(new AbstractAction("My Menu Item") {
     public void actionPerformed(ActionEvent e) {
         String  menuName=e.getActionCommand();
-//        menuName = event.getActionCommand(); // what's written on the item that was clicked
+	//menuName = event.getActionCommand(); // what's written on the item that was clicked
         // note the String comparison
-        if (item1.equals("Add DVD")) {
+        if (item1.equals("Add Customer")) {
            welcomeLabel.setText("Menu Item '" + menuName + "' is selected.");
         } // end if
-        else if (item2.equals("Edit DVD")) {
+        else if (item2.equals("Edit Customer")) {
            welcomeLabel.setText("Menu Item '" + menuName + "' is selected.");
         } // end else if
-        else if (item3.equals("Remove DVD")) {
+        else if (item3.equals("Remove Customer")) {
+           welcomeLabel.setText("Menu Item '" + menuName + "' is selected.");
+        } // end else if
+        else if (item4.equals("Add DVD")) {
+           welcomeLabel.setText("Menu Item '" + menuName + "' is selected.");
+        } // end else if
+        else if (item5.equals("Edit DVD")) {
+           welcomeLabel.setText("Menu Item '" + menuName + "' is selected.");
+        } // end else if
+        else if (item6.equals("Remove DVD")) {
            welcomeLabel.setText("Menu Item '" + menuName + "' is selected.");
         } // end else if
         else {
@@ -112,13 +131,13 @@ public class dvd extends JFrame implements ActionListener,MenuListener{
     public void menuSelected(MenuEvent e)
     {
     	//rent a DVD
-        dvd.setVisible(false);
-        JFrame rentDVD = new JFrame();
-       		rentDVD.setVisible(true);
-        	rentDVD.setTitle ("Rent A DVD");
-        	rentDVD.setSize (600,600);
-        	rentDVD.setResizable(false);
-        	rentDVD.setDefaultCloseOperation( EXIT_ON_CLOSE );
+        //dvd.setVisible(false);
+        //JFrame rentDVD = new JFrame();
+       		//rentDVD.setVisible(true);
+        	//rentDVD.setTitle ("Rent A DVD");
+        	//rentDVD.setSize (600,600);
+        	//rentDVD.setResizable(false);
+        	//rentDVD.setDefaultCloseOperation( EXIT_ON_CLOSE );
         	
         	
        
