@@ -53,9 +53,12 @@ public class dvd extends JFrame implements ActionListener{
        
         welcomeLabel = new JLabel("<html><p>Welcome to the Parkway DVD Rental store.</p> <br/> " +
         						"<p>Staff can select an option from the menu above to manage the database.</p><br/> " +
-        						 "<p>Customers can press the button below to rent a DVD.</p></html>");
+        						 "<p>Customers can press the button below to rent a DVD.</p><br/><br/><br/></html>");
         
          //Code Source: http://stackoverflow.com/questions/7861724/is-there-a-word-wrap-property-for-jlabel
+        
+        
+        
         						 
         JButton rentButton = new JButton();
         rentButton.setText("Rent a DVD");
