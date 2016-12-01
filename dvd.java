@@ -10,6 +10,7 @@ public class dvd extends JFrame implements ActionListener{
     JPanel headingPanel,mainPanel;
     JMenu customerMenu,dvdMenu,exitMenu;
     JMenuItem item1,item2,item3,item4,item5,item6,item7,exitItem;
+    String custName, custAddress;
     
     
 
@@ -115,7 +116,10 @@ public class dvd extends JFrame implements ActionListener{
     public void actionPerformed(ActionEvent e) {
         String  menuName=e.getActionCommand();
         if (menuName.equals("Add Customer")) {
-           welcomeLabel.setText("Menu Item '" + menuName + "' is selected.");
+			custName = JOptionPane.showInputDialog("Please enter the customer's name:");
+			custAddress = JOptionPane.showInputDialog("Please enter the customer's address:");
+			JOptionPane.showInputDialog("Please enter the customer's DOB:");
+			JOptionPane.showMessageDialog (null, "The customer " + custName + " has been added to the database.", "Confirmation Message", JOptionPane.INFORMATION_MESSAGE);
         } // end if
         else if (menuName.equals("Edit Customer")) {
            welcomeLabel.setText("Menu Item '" + menuName + "' is selected.");
@@ -124,7 +128,12 @@ public class dvd extends JFrame implements ActionListener{
            welcomeLabel.setText("Menu Item '" + menuName + "' is selected.");
         } // end else if
         else if (menuName.equals("Add DVD")) {
-           welcomeLabel.setText("Menu Item '" + menuName + "' is selected.");
+          	JOptionPane.showInputDialog("Please enter the title of the DVD:");
+			JOptionPane.showInputDialog("Please enter the year the DVD was made:");
+			JOptionPane.showInputDialog("Please enter the genre of the DVD:");
+			JOptionPane.showInputDialog("Please enter the rating of the DVD:");
+			JOptionPane.showInputDialog("Please enter the price of the DVD:");
+			JOptionPane.showMessageDialog (null, "The DVD has been added to the database.", "Confirmation Message", JOptionPane.INFORMATION_MESSAGE);
         } // end else if
         else if (menuName.equals("Edit DVD")) {
            welcomeLabel.setText("Menu Item '" + menuName + "' is selected.");
