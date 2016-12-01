@@ -10,7 +10,9 @@ public class dvd extends JFrame implements ActionListener{
     JPanel headingPanel,mainPanel;
     JMenu customerMenu,dvdMenu,exitMenu;
     JMenuItem item1,item2,item3,item4,item5,item6,item7,exitItem;
-    String custName, custAddress;
+    String custName, custAddress, title, genre, rating;
+    int age, year;
+    double price;
     
     
 
@@ -118,21 +120,22 @@ public class dvd extends JFrame implements ActionListener{
         if (menuName.equals("Add Customer")) {
 			custName = JOptionPane.showInputDialog("Please enter the customer's name:");
 			custAddress = JOptionPane.showInputDialog("Please enter the customer's address:");
-			JOptionPane.showInputDialog("Please enter the customer's DOB:");
+			age = Integer.parseInt(JOptionPane.showInputDialog("Please enter the customer's DOB:"));
 			JOptionPane.showMessageDialog (null, "The customer " + custName + " has been added to the database.", "Confirmation Message", JOptionPane.INFORMATION_MESSAGE);
         } // end if
         else if (menuName.equals("Edit Customer")) {
            welcomeLabel.setText("Menu Item '" + menuName + "' is selected.");
         } // end else if
+        
         else if (menuName.equals("Remove Customer")) {
            welcomeLabel.setText("Menu Item '" + menuName + "' is selected.");
         } // end else if
         else if (menuName.equals("Add DVD")) {
-          	JOptionPane.showInputDialog("Please enter the title of the DVD:");
-			JOptionPane.showInputDialog("Please enter the year the DVD was made:");
-			JOptionPane.showInputDialog("Please enter the genre of the DVD:");
-			JOptionPane.showInputDialog("Please enter the rating of the DVD:");
-			JOptionPane.showInputDialog("Please enter the price of the DVD:");
+          	title = JOptionPane.showInputDialog("Please enter the title of the DVD:");
+			year = JOptionPane.showInputDialog("Please enter the year the DVD was made:");
+			genre = JOptionPane.showInputDialog("Please enter the genre of the DVD:");
+			rating = JOptionPane.showInputDialog("Please enter the rating of the DVD:");
+			price = JOptionPane.showInputDialog("Please enter the price of the DVD:");
 			JOptionPane.showMessageDialog (null, "The DVD has been added to the database.", "Confirmation Message", JOptionPane.INFORMATION_MESSAGE);
         } // end else if
         else if (menuName.equals("Edit DVD")) {
