@@ -63,8 +63,8 @@ public class dvd extends JFrame implements ActionListener{
        
        	
        	mainPanel.add(welcomeLabel);
-       	mainPanel.add(new JLabel("                          ")); //JB - added a blank label here so that the button gets "pushed" onto the next line of
-       	                                                         //the panel, effectively placing the button underneath the other label
+       	mainPanel.add(new JLabel("                          "));
+       	                                                         
        	mainPanel.add(rentButton);
         
         customerMenu = new JMenu("Manage Customers");       
