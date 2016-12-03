@@ -2,6 +2,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.event.*;
+import java.util.ArrayList;
 
 public class dvd extends JFrame implements ActionListener{
     // private instance variables
@@ -10,9 +11,11 @@ public class dvd extends JFrame implements ActionListener{
     JPanel headingPanel,mainPanel;
     JMenu customerMenu,dvdMenu,exitMenu;
     JMenuItem item1,item2,item3,item4,item5,item6,item7,exitItem;
+    
     String custName, custAddress, title, genre, rating;
     int age, year;
     double price;
+    
     
     
 
@@ -118,43 +121,103 @@ public class dvd extends JFrame implements ActionListener{
     public void actionPerformed(ActionEvent e) {
         String  menuName=e.getActionCommand();
         if (menuName.equals("Add Customer")) {
-			custName = JOptionPane.showInputDialog("Please enter the customer's name:");
-			custAddress = JOptionPane.showInputDialog("Please enter the customer's address:");
-			age = Integer.parseInt(JOptionPane.showInputDialog("Please enter the customer's DOB:"));
-			JOptionPane.showMessageDialog (null, "The customer " + custName + " has been added to the database.", "Confirmation Message", JOptionPane.INFORMATION_MESSAGE);
+				custName = JOptionPane.showInputDialog("Please enter the customer's name:");
+				 if (custName == null)
+                {
+                    // Code to use when CANCEL is PRESSED.
+                    JOptionPane.showMessageDialog (null, "The process has been cancelled", "Confirmation Message", JOptionPane.INFORMATION_MESSAGE);
+                }
+                
+                 else{
+                	 custAddress = JOptionPane.showInputDialog("Please enter the customer's address:");
+                	  	if (custAddress == null)
+                			{
+                    			// Code to use when CANCEL is PRESSED.
+                    			JOptionPane.showMessageDialog (null, "The process has been cancelled", "Confirmation Message", JOptionPane.INFORMATION_MESSAGE);
+                			}
+                		
+                		else{
+                			
+                				age = Integer.parseInt(JOptionPane.showInputDialog("Please enter the customer's age (enter 0 to cancel):"));
+             		
+                						
+                					if (age == 0)
+                						{
+                    						// Code to use when CANCEL is PRESSED.
+                    						JOptionPane.showMessageDialog (null, "The process has been cancelled", "Confirmation Message", JOptionPane.INFORMATION_MESSAGE);
+                			
+                						}
+                						
+                					else{
+                						JOptionPane.showMessageDialog (null, "The customer " + custName + " has been added to the database.", "Confirmation Message", JOptionPane.INFORMATION_MESSAGE);
+                						
+                					}
+                			
+                			}	
+                			
+                			
+                			
+                 }
+			}
+			
+			
+			else{
+				System.exit(0);
+				
+			}
+		
+		if (menuName.equals("Edit Customer")) {
+			
+			
+           welcomeLabel.setText("Menu Item '" + menuName + "' is selected.");
         } // end if
-        else if (menuName.equals("Edit Customer")) {
-           welcomeLabel.setText("Menu Item '" + menuName + "' is selected.");
-        } // end else if
         
-        else if (menuName.equals("Remove Customer")) {
+        else{
+			System.exit(0);
+				
+			}		
+				
+				
+		if (menuName.equals("Remove Customer")) {
            welcomeLabel.setText("Menu Item '" + menuName + "' is selected.");
-        } // end else if
-        else if (menuName.equals("Add DVD")) {
-          	title = JOptionPane.showInputDialog("Please enter the title of the DVD:");
-			year = JOptionPane.showInputDialog("Please enter the year the DVD was made:");
-			genre = JOptionPane.showInputDialog("Please enter the genre of the DVD:");
-			rating = JOptionPane.showInputDialog("Please enter the rating of the DVD:");
-			price = JOptionPane.showInputDialog("Please enter the price of the DVD:");
-			JOptionPane.showMessageDialog (null, "The DVD has been added to the database.", "Confirmation Message", JOptionPane.INFORMATION_MESSAGE);
-        } // end else if
-        else if (menuName.equals("Edit DVD")) {
-           welcomeLabel.setText("Menu Item '" + menuName + "' is selected.");
-        } // end else if
-        else if (menuName.equals("Remove DVD")) {
-           welcomeLabel.setText("Menu Item '" + menuName + "' is selected.");
-        } // end else if
-        else
-        {
-           welcomeLabel.setText("Menu Item '" + menuName + "' is selected.");
+        } // end if
+        
+        else{
+				System.exit(0);
+				
+			}		
+				
+			
+			
+			
+      } // end actionperformed
+        
+        
+       
+        
+        
+        //else if (menuName.equals("Add DVD")) {
+          	//title = JOptionPane.showInputDialog("Please enter the title of the DVD:");
+			//year = Integer.parseInt(JOptionPane.showInputDialog("Please enter the year the DVD was made:"));
+			//genre = JOptionPane.showInputDialog("Please enter the genre of the DVD:");
+			//rating = JOptionPane.showInputDialog("Please enter the rating of the DVD:");
+			//price = Float.parseFloat(JOptionPane.showInputDialog("Please enter the price of the DVD:"));
+			//JOptionPane.showMessageDialog (null, "The DVD has been added to the database.", "Confirmation Message", JOptionPane.INFORMATION_MESSAGE);
+        //} // end else if
+        //else if (menuName.equals("Edit DVD")) {
+           //welcomeLabel.setText("Menu Item '" + menuName + "' is selected.");
+        //} // end else if
+        //else if (menuName.equals("Remove DVD")) {
+           //welcomeLabel.setText("Menu Item '" + menuName + "' is selected.");
+        //} // end else if
+        //else
+        //{
+           //welcomeLabel.setText("Menu Item '" + menuName + "' is selected.");
            //exit
         
-           System.exit(0);
+           //System.exit(0);
            //end else
-        }	
-    }
-        
-
+        //}	
 }
 
            
