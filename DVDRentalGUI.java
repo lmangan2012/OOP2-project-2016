@@ -11,7 +11,8 @@ public class DVDRentalGUI extends JFrame implements ActionListener{
     JPanel headingPanel,mainPanel;
     JMenu customerMenu,dvdMenu,exitMenu;
     JMenuItem item1,item2,item3,item4,item5,item6,item7,exitItem;
-    ArrayList <Customer> CustomerArrayList;
+    ArrayList <Customer> customerArrayList = new ArrayList <Customer>();
+    ArrayList <DVD> DVDArrayList = new ArrayList <DVD>();
     
     String custName, custAddress, title, genre, rating, customer;
     int age, year, count;
@@ -139,79 +140,33 @@ public class DVDRentalGUI extends JFrame implements ActionListener{
                 			}
                 		
                 		else{
-                			
-                				age = Integer.parseInt(JOptionPane.showInputDialog("Please enter the customer's age (Enter 0 to cancel):"));
-             		
-                						
-                					if (age == 0)
-                						{
-                    						// Code to use when CANCEL is PRESSED
-                    						
-                    						JOptionPane.showMessageDialog (null, "The process has been cancelled", "Confirmation Message", JOptionPane.INFORMATION_MESSAGE);
-                			
-                						}
-                						
-                					else{
+                			        String ageAsString = JOptionPane.showInputDialog("Please enter the customer's age:");
+                			        
+                			        if(ageAsString.equals("") || ageAsString==null)
+                			        	
+                			        	   // Code to use when CANCEL is PRESSED.
+                			               JOptionPane.showMessageDialog (null, "The process has been cancelled", "Confirmation Message", JOptionPane.INFORMATION_MESSAGE);
+                			        else
+	                			        {
+	                			        	age = Integer.parseInt(ageAsString);
+	                			        	
+                			       
+                					
                 						Customer customer = new Customer(custName,custAddress,age);
-                						CustomerArrayList = new ArrayList <Customer>();
-                						custName = new String();
-                						custAddress = new String();
-                						age = 0;
-                						count = 0;
-                						
-                						//get text from textfields
-                						
-                						custName = customer.getCustName();
-                						custAddress = customer.getCustAddress();
-                						age = customer.getAge();
-                						
-                						Customer c = new Customer();
-                						
-                						c.setCustName(custName);
-                						c.setCustAddress(custAddress);
-                						c.setAge(age);
-                						
-                						//add object to arraylist
-                						
-                						CustomerArrayList.add(c);
-                						
-                						//increase counter
-                						
+            						
                 						count++;
                 						
                 						 
-                						for (int i = 0; i<CustomerArrayList.size(); i++){
-            								JOptionPane.showMessageDialog(null, "Name: " + CustomerArrayList.get(i).getCustName() + "\nAddress: " + CustomerArrayList.get(i).getCustAddress() + "\nAge: " + CustomerArrayList.get(i).getAge());
+                						for (int i = 0; i<customerArrayList.size(); i++){
+            								JOptionPane.showMessageDialog(null, "Name: " + customerArrayList.get(i).getCustName() + "\nAddress: " + customerArrayList.get(i).getCustAddress() + "\nAge: " + customerArrayList.get(i).getCustAge());
         								}
-                						
-                						
-                					
-                						//ArrayList<Customer> person = new ArrayList<Customer>();
-										//ArrayList<String> custName = new ArrayList<String>();
-										//ArrayList<String> custAddress = new ArrayList<String>();
-        								//ArrayList<Integer> age = new ArrayList<Integer>();
-        							 	//person.add(customer);
-        							 	
-        							 	//for (int i = 0; i<Customer.size(); i++){
-            									//person = Customer.get( i);
-            									//System.out.println( person.getCustName( ) );
-        									//}
-        								
-        								//for (int x = 0; x < pricesArray.length; x++)
-
-        								
-                						
-                						//for (int i = 0; i<customer.size(); i++){
-            									//person = customer.add( i);
-        									//}
-                						    //JB - some suggestions
-										    //Create a Customer object at this point - you'll need a Customer class for your project
-											    //Add it to an array list of Customers
+                				
+                				
 										    //You can set it up so that when the "Exit" menu item is selected, the Customer and DVD array lists
 										    //are saved to a file on disk
                 						
                 						
-                						JOptionPane.showMessageDialog (null, "The customer " + custName + " has been added to the database.", "Confirmation Message", JOptionPane.INFORMATION_MESSAGE);
+                						JOptionPane.showMessageDialog (null, "The customer " + custName + " has been added to the array-list.", "Confirmation Message", JOptionPane.INFORMATION_MESSAGE);
                 						
                 					}
                 			
@@ -291,6 +246,24 @@ public class DVDRentalGUI extends JFrame implements ActionListener{
                 							
                 							
                 													else{
+         
+            						
+                					//	count++;
+                						
+                						 
+                						//for (int i = 0; i<customerArrayList.size(); i++){
+            								//JOptionPane.showMessageDialog(null, "Name: " + customerArrayList.get(i).getCustName() + "\nAddress: " + customerArrayList.get(i).getCustAddress() + "\nAge: " + customerArrayList.get(i).getCustAge());
+        								//}
+                															DVD dvd = new DVD(title,year,genre,rating,price);
+            						
+                																count++;
+                						
+                						 
+                															for (int i = 0; i<DVDArrayList.size(); i++){
+            																		JOptionPane.showMessageDialog(null, "Title: " + DVDArrayList.get(i).getTitle() + "\nYear: " + DVDArrayList.get(i).getYear() + "\nGenre: " + DVDArrayList.get(i).getGenre() + 
+            																											"\nRating: " + DVDArrayList.get(i).getRating() + "\nPrice: " + DVDArrayList.get(i).getPrice());
+        																			}
+                																				
                 														    //JB - some suggestions
                 														    //Create a DVD object at this point - you'll need a separate DVD class for your project,
                 														    //Add the DVD object to an array list of DVDs
