@@ -1,6 +1,7 @@
 //Customer.java
 
 public class Customer{
+
 	
 	//declare attributes
 	
@@ -15,7 +16,7 @@ public class Customer{
 	
 	public Customer(){
 		custName = "No Name Supplied";
-		custAddress = "No address Supplied";
+		custAddress = "No Address Supplied";
 		custAge = 0;
 	}
 	
@@ -77,7 +78,7 @@ public class Customer{
 }	
 	//create main class and object
 	
-	  class createBook{
+	  class createCustomer{
 		public static void main(String args []){
 			Customer c1 = new Customer();
 			c1.setCustName("Jane Lynch");
