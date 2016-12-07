@@ -1,6 +1,7 @@
 //Customer.java
+import java.io.Serializable;
 
-public class Customer{
+public class Customer implements Serializable{
 
 	
 	//declare attributes
@@ -32,19 +33,22 @@ public class Customer{
 	
 	//mutator method
 	
-	/**sets the name of a Customer object**/
+	/**sets the name of a Customer object
+	 *@param name name of a customer**/
 		
 	public void setCustName(String custName){
 		this.custName = custName;
 	}
 	
 	/**sets the address of a Customer object
-	
-	*@param address address of a customer**/
+	 *@param address address of a customer**/
 	
 	public void setCustAddress(String custAddress){
 		this.custAddress = custAddress;
 	}
+	
+	/**sets the age of a Customer object
+	 *@param age age of a customer**/
 	
 	public void setCustAge(int custAge){
 		this.custAge = custAge;
@@ -60,15 +64,19 @@ public class Customer{
 		return custName;
 	}
 	
+	/**returns the address of a Customer object
+	 *@param address address of a Customer**/
 	public String getCustAddress(){
 		return custAddress;
 	}
 	
+	/**returns the age of a Customer object
+	 *@param age age of a Customer**/
 	public int getCustAge(){
 		return custAge;
 	}
 	
-	
+	 
 	//toString() method
 	
 	public String toString(){
