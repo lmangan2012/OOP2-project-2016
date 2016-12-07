@@ -1,6 +1,8 @@
-//Customer.java
+//DVD.java
+import java.io.Serializable;
 
-public class DVD{
+
+public class DVD implements Serializable{
 	
 	//declare attributes
 	
@@ -67,7 +69,7 @@ public class DVD{
 	//accessor method
 	
 	/**returns the title of a DVD object
-	 *@param title title of a Customer**/
+	 *@param title title of a DVD**/
 	
 	public String getTitle(){
 		return title;
